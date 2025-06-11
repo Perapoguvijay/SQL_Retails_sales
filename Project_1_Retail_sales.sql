@@ -1,7 +1,7 @@
--- SQL Retail Sales Analysis -p1
+-- **SQL Retail Sales Analysis -p1
 create database projects;
 
---- CREATE Table
+--- **CREATE Table
 Drop Table if Exists sales_analysis;
 CREATE TABLE sales_analysis (
 transactions_id	int primary key,
