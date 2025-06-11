@@ -1,7 +1,7 @@
--- **SQL Retail Sales Analysis -p1
+-- **SQL Retail Sales Analysis -p1**
 create database projects;
 
---- **CREATE Table
+--- **CREATE Table**
 Drop Table if Exists sales_analysis;
 CREATE TABLE sales_analysis (
 transactions_id	int primary key,
@@ -54,7 +54,7 @@ or
 cogs is null
 or total_sale is null ;
 
---- Data Cleaning 
+--- **Data Cleaning** 
 delete from sales_analysis
 where
 transactions_id is null
