@@ -75,27 +75,27 @@ or total_sale is null;
 
 --- Data ExPloration
 
---- How many sales we have ?
+--- **How many sales we have ?**
 
 select count(*) as total_sales from sales_analysis;
 
----- How many unique customers we have?
+---- **How many unique customers we have?**
 select count(distinct customer_id) from sales_analysis;
 
---- How many uniue category we have ?
+--- **How many uniue category we have ?**
 select count(distinct category) as cate from sales_analysis;
 select distinct category from sales_analysis;
 
 
----- Data Analysis & Business Key problems & Answers
---- My Analysis & findings 
---- Q.1 Write a SQL query to retrieve all columns for sales modo on '2022-11-05'
+---- **Data Analysis & Business Key problems & Answers**
+--- **My Analysis & findings** 
+--- **Q.1 Write a SQL query to retrieve all columns for sales modo on '2022-11-05'**
 select * from 
 sales_analysis
 where sale_date='2022-11-05';
 
---- Q-2 Write a SQL Query to retrieve all Transactions where the category 
----- is clothing and the quantiy sold is more than 4 month of nov-2022
+--- **Q-2 Write a SQL Query to retrieve all Transactions where the category 
+--         is clothing and the quantiy sold is more than 4 month of nov-2022**
 
 select 
 	* from sales_analysis
@@ -105,7 +105,7 @@ select
 		and 
 		quantiy>=4;
 
---- Q.3 write a SQL Query to calculate the total sales (total sales) for each category
+--- **Q.3 write a SQL Query to calculate the total sales (total sales) for each category**
 
 select 
 	category,sum(total_sale) as net_sale ,
@@ -113,21 +113,21 @@ select
 from sales_analysis
 group by category
 
---- Q.4 Write a SQL Query to find the average age of customers who purchased items
---- from the 'Beauty' category.
+--- **Q.4 Write a SQL Query to find the average age of customers who purchased items
+--- from the 'Beauty' category.**
 
 select 
 	avg(age) as avg_age
 from sales_analysis
 	where category='Beauty';
---- Q.5 Write a SQL Query to find all transactions where the total_sale
----- is greater the 1000
+--- **Q.5 Write a SQL Query to find all transactions where the total_sale
+---- is greater the 1000**
 
 select * from sales_analysis
 where total_sale>1000;
 
---- Q.6 Write a SQl query to find the total number of transactions 
----- (transaction_id) made by each gender in each category
+--- **Q.6 Write a SQl query to find the total number of transactions 
+---- (transaction_id) made by each gender in each category**
 
 select 
 	category,
@@ -137,8 +137,8 @@ from sales_analysis
 group by gender,category
 order by category;
 
----Q.7  Write a SQl query to calculate the average sale for each month 
-----. find out best selling month in each year
+---**Q.7  Write a SQl query to calculate the average sale for each month 
+----. find out best selling month in each year**
 select year_1,
 month_1 ,
 avg_total_sale
@@ -154,14 +154,14 @@ group by year(sale_date),month(sale_date)
 ) as t1 where rnk=1
 ---order by year(sale_date),avg_total_sale desc;
 
---- Q.8 Write a SQl Query to find the TOP 5 customers based on the highest total sale 
+--- **Q.8 Write a SQl Query to find the TOP 5 customers based on the highest total sale** 
 
 select top 5 customer_id ,sum(total_sale) as total_sales from sales_analysis
 group by customer_id order by total_sales desc;
 
 
---- Q.9 Write a SQL query to find the number 
---- of unique Customers who purchased items for each category
+--- **Q.9 Write a SQL query to find the number 
+--- of unique Customers who purchased items for each category**
 
 select
 	category,
@@ -170,8 +170,8 @@ from sales_analysis
 group by category 
 
 
----- Q.10 Write a SQL Query to create each shift and number of orders 
----     (Example Morning <=12,Afternoon Between 12 & 17, Evening >17)
+---- **Q.10 Write a SQL Query to create each shift and number of orders 
+---     (Example Morning <=12,Afternoon Between 12 & 17, Evening >17)**
 
 select datepart(hour,sale_time) as Hourss from sales_analysis;
 
